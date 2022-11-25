@@ -6,7 +6,7 @@ public class PlayerControllerProjectTwo : MonoBehaviour
 {
     [SerializeField] float speed = 10f;
     [SerializeField] float hRange = 10.0f;
-    [SerializeField] GameObject[] projectilePrefab;
+    [SerializeField] GameObject[] projectilePrefab; // Pojectiles List
     float horizontal;
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class PlayerControllerProjectTwo : MonoBehaviour
             ShootFood(0);
         }
 
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.O))
         {
             //Shoot food for another 
             ShootFood(1);

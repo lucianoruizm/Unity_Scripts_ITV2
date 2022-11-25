@@ -9,21 +9,21 @@ public class FoodBehaviour : MonoBehaviour
     [SerializeField] int damageAmmount = 10;
 
     GameObject gameManager;
+
     GameController gameController;
 
-    void Start()
+    void  Start() 
     {
-        // Destroy object in 3 seconds
         Destroy(gameObject,3.0f);
 
         gameManager = GameObject.Find("GameController");
 
-        if(gameManager == null) Debug.Log("Game Manager Object not found");
+        if(gameManager == null) Debug.Log("GameManager Object not found");
 
         gameController = gameManager.GetComponent<GameController>();
 
-        if(gameManager == null) Debug.Log("GameController Script not found");
-    }
+        if(gameController == null) Debug.Log("GameController Script not found");
+   }
 
     // Update is called once per frame
     void Update()
@@ -31,11 +31,12 @@ public class FoodBehaviour : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         //On collision destroy the object
         if(other.gameObject.CompareTag("Animals"))
         {   
+            // Score
             gameController.ScoreUp(damageAmmount);
             // Destroy the animal
             Destroy(other.gameObject);
