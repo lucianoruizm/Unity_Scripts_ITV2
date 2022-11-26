@@ -10,13 +10,6 @@ public class PlayerController : MonoBehaviour
     float horizontalInput;
     float forwardInput;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -28,15 +21,13 @@ public class PlayerController : MonoBehaviour
 
         if(speed > 30) speed = 30;
     
-        // transform.Translate(0, 0, 0.2f);
-        // Es lo mismo pero escrito de forma simplificada
+        // transform.Translate(0, 0, 0.2f); // Es lo mismo pero escrito de forma simplificada
         
         // transform.Translate(Vector3.forward);
-        // Como el objeto va muy rapido se utiliza lo siguiente
-        // para normalizar la velocidad del objeto:
-        
+        // Como el objeto va muy rapido se utiliza lo siguiente para normalizar la velocidad del objeto:
         // transform.Translate(Vector3.forward * Time.deltaTime);
-        // como ahora va muy lento se le agrega otra multiplacion para aumentar la velocidad
+
+        // como ahora va muy lento se le agrega otra multiplacion para aumentar la velocidad:
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
         // transform.Translate(Vector3.right * Time.deltaTime * turnSpeed * horizontalInput);
         transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * horizontalInput);

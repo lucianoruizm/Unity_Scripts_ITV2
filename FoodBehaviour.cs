@@ -8,6 +8,8 @@ public class FoodBehaviour : MonoBehaviour
 
     [SerializeField] int damageAmmount = 10;
 
+    [SerializeField] GameObject explotion;
+
     GameObject gameManager;
 
     GameController gameController;
@@ -38,6 +40,8 @@ public class FoodBehaviour : MonoBehaviour
         {   
             // Score
             gameController.ScoreUp(damageAmmount);
+            // Explotion
+            Instantiate(explotion, other.gameObject.transform.position, other.gameObject.transform.rotation);
             // Destroy the animal
             Destroy(other.gameObject);
             // Destroy the food

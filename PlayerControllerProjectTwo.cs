@@ -8,11 +8,6 @@ public class PlayerControllerProjectTwo : MonoBehaviour
     [SerializeField] float hRange = 10.0f;
     [SerializeField] GameObject[] projectilePrefab; // Pojectiles List
     float horizontal;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // crear función para que el jugador se destruya cuando un tag "animal" lo toque
     // private void OnCollisionEnter(Collision other) // Pasa los parametros de collision del obj
@@ -23,7 +18,6 @@ public class PlayerControllerProjectTwo : MonoBehaviour
     //     }
     // }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.U))
@@ -40,7 +34,6 @@ public class PlayerControllerProjectTwo : MonoBehaviour
 
         // Se recibe el input del teclado
         horizontal = Input.GetAxis("Horizontal");
-        // Debug.Log("Var Horizotal = " + horizontal);
 
         // Movimiento del player
         transform.Translate(new Vector3(1,0,0) * horizontal * speed * Time.deltaTime);
@@ -61,7 +54,6 @@ public class PlayerControllerProjectTwo : MonoBehaviour
     void ShootFood(int index)
     {
         Instantiate(projectilePrefab[index], (transform.position + Vector3.up), transform.rotation);
-        // Instantiate to player position, but modifying a little to not appear on the floor
-
+        // Instantiate a player position, con modificaciones para la posición
     }
 }
