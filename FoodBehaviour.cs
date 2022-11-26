@@ -10,6 +10,9 @@ public class FoodBehaviour : MonoBehaviour
 
     [SerializeField] GameObject explotion;
 
+    [SerializeField] AudioSource asExplotionSound;
+    [SerializeField] AudioClip explotionSound;
+
     GameObject gameManager;
 
     GameController gameController;
@@ -40,12 +43,18 @@ public class FoodBehaviour : MonoBehaviour
         {   
             // Score
             gameController.ScoreUp(damageAmmount);
+            
             // Explotion
             Instantiate(explotion, other.gameObject.transform.position, other.gameObject.transform.rotation);
+            
+            // Sound
+            asExplotionSound.PlayOneShot(explotionSound);
+            
             // Destroy the animal
             Destroy(other.gameObject);
+
             // Destroy the food
-            Destroy(gameObject);
+            Destroy(gameObject, 2.0f);
         }
     }
 }
